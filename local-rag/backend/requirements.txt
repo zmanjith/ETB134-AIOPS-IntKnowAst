@@ -1,0 +1,7 @@
+langchain
+langchain-community
+pypdf
+qdrant-client
+sentence-transformers
+fastapi
+uvicorn
