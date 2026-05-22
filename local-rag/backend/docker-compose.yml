@@ -6,6 +6,8 @@ services:
     image: qdrant/qdrant:latest
     ports:
       - "6333:6333"
+    volumes:  
+      - qdrant_storage:/qdrant/storage
 
   minio:
     image: minio/minio:latest
@@ -16,3 +18,9 @@ services:
     ports:
       - "9000:9000"
       - "9001:9001"
+    volumes:
+      - minio_storage:/data
+    
+volumes:
+  qdrant_storage:
+  minio_storage:
