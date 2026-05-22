@@ -17,6 +17,8 @@ for page in reader.pages:
     text += page.extract_text()
 
 # Create splitter
+# each chunk will have 500 characters and an overlap of 50 characters between chunks
+# meaning that the last 50 characters of one chunk will be the first 50 characters of the next chunk
 splitter = RecursiveCharacterTextSplitter(
     #chunk_size=500,
     #chunk_overlap=50
@@ -32,8 +34,14 @@ chunks = splitter.split_text(text)
 # Print info
 print(f"Total chunks: {len(chunks)}")
 
-print("\nFIRST CHUNK:\n")
-print(chunks[0])
+#print("\nFIRST CHUNK:\n")
+#print(chunks[0])
 
-print("\nSECOND CHUNK:\n")
-print(chunks[1])
+#print("\nSECOND CHUNK:\n")
+#print(chunks[1])
+
+with open("chunks.txt", "w", encoding="utf-8") as f:
+    for i, chunk in enumerate(chunks):
+        f.write(f"\n--- CHUNK {i+1} ---\n")
+        f.write(chunk)
+        f.write("\n")
