@@ -1,8 +1,11 @@
 from pypdf import PdfReader
 from pathlib import Path
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-# from langchain.text_splitter import RecursiveCharacterTextSplitter
-# PDF path
+from sentence_transformers import SentenceTransformer
+from qdrant_client import QdrantClient
+from qdrant_client.models import VectorParams, Distance
+from qdrant_client.models import PointStruct
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 pdf_path = BASE_DIR / "data" / "AIAA-presentation_Nandan_Last.pdf"
@@ -20,11 +23,7 @@ for page in reader.pages:
 # each chunk will have 500 characters and an overlap of 50 characters between chunks
 # meaning that the last 50 characters of one chunk will be the first 50 characters of the next chunk
 splitter = RecursiveCharacterTextSplitter(
-    #chunk_size=500,
-    #chunk_overlap=50
-    #chunk_size=200,
     chunk_size=1000,
-    #chunk_overlap=20
     chunk_overlap=200
 )
 
@@ -34,14 +33,41 @@ chunks = splitter.split_text(text)
 # Print info
 print(f"Total chunks: {len(chunks)}")
 
-#print("\nFIRST CHUNK:\n")
-#print(chunks[0])
+#** For debugging purposes, we can write the chunks to a file to see how they look. */
+#with open("chunks.txt", "w", encoding="utf-8") as f:
+#    for i, chunk in enumerate(chunks):
+#        f.write(f"\n--- CHUNK {i+1} ---\n")
+#        f.write(chunk)
+#        f.write("\n")
 
-#print("\nSECOND CHUNK:\n")
-#print(chunks[1])
+# Load model
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
-with open("chunks.txt", "w", encoding="utf-8") as f:
-    for i, chunk in enumerate(chunks):
-        f.write(f"\n--- CHUNK {i+1} ---\n")
-        f.write(chunk)
-        f.write("\n")
+# Generate embeddings
+embeddings = model.encode(chunks)
+
+# Connect Qdrant
+client = QdrantClient(
+    host="localhost",
+    port=6333
+)
+
+# Create points
+points = []
+
+for i, vector in enumerate(embeddings):
+    points.append(
+        PointStruct(
+            id=i,
+            vector=vector.tolist(),
+            payload={"text": chunks[i]}
+        )
+    )
+
+# Upload
+client.upsert(
+    collection_name="documents",
+    points=points
+)
+
+print("Vectors uploaded successfully")       

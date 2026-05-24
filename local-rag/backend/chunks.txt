@@ -1,0 +1,273 @@
+
+--- CHUNK 1 ---
+Author
+Company/Organization
+Conference Name, Conference Dates
+Conference Location
+Presentation Title
+Nandan Manjith
+UTSA Hypersonics Lab
+AIAA Region IV Student Conference March 27-29, 2026
+Traversing Pitot Probe Characterization of the UTSA Mach 7 
+Wind Tunnel
+Acknowledgements
+ Dr. Christopher Combs 
+ Nicholas Stegmeier
+ Geneva Ballard
+ UTSA Hypersonics Research Group 
+2
+ Hypersonic flight (Mach > 5) is 
+critical for atmospheric entry and 
+defense systems 
+ Flow physics at hypersonic 
+speeds are complex and difficult 
+to predict
+ Wind tunnel experiments provide 
+controlled environments to study 
+and validate these flows
+3
+Motivation
+Advancements in hypersonic 
+flight depends on wind tunnel 
+testing and accurate flow 
+characterization.
+ Planar nozzle generates 
+boundary layers along all 
+walls
+ Freestream region depends 
+on boundary layer thickness
+4
+Challenges in Hypersonic Wind Tunnels
+Planar Nozzle Cross Section Validate freestream Mach number of UTSA Mach 7 facility
+
+--- CHUNK 2 ---
+walls
+ Freestream region depends 
+on boundary layer thickness
+4
+Challenges in Hypersonic Wind Tunnels
+Planar Nozzle Cross Section Validate freestream Mach number of UTSA Mach 7 facility
+ Measure boundary layer development
+ Compare results with prior characterization data
+5
+Research Objective
+UTSA Mach 7 Ludwieg Tube
+ Nominal Mach number: 7.2 
+ High-pressure driver & low-
+pressure vacuum setup
+ Diaphragm rupture initiates flow
+ Flow expands through the nozzle 
+to the test section
+ Steady state passes (70-100 ms)
+6
+Pitot Probe Measurements
+ Freestream stagnation 
+pressure 𝑃𝑃0
+ Static pressure port  
+→ 𝑃𝑃1
+ Normal shock at Pitot 
+probe → 𝑃𝑃02
+7
+Pitot probe measurements can 
+reveal how flow properties vary 
+across the test section.
+Freestream Mach Number
+𝑃𝑃02
+𝑃𝑃0
+=
+𝛾𝛾+ 1
+2 𝑀𝑀1
+2
+1 + 𝛾𝛾− 1
+2 𝑀𝑀1
+2
+𝛾𝛾
+𝛾𝛾−1
+1
+2𝛾𝛾
+𝛾𝛾+ 1 𝑀𝑀1
+2 − 𝛾𝛾− 1
+𝛾𝛾+ 1
+1
+𝛾𝛾−1
+ Total pressure ratio 𝑃𝑃02/𝑃𝑃0 →determines Mach number 
+ Freestream stagnation pressure 𝑃𝑃0 = 𝑃𝑃01
+8
+Static Pressure Estimate
+𝑃𝑃1
+𝑃𝑃0
+
+--- CHUNK 3 ---
+2 𝑀𝑀1
+2
+𝛾𝛾
+𝛾𝛾−1
+1
+2𝛾𝛾
+𝛾𝛾+ 1 𝑀𝑀1
+2 − 𝛾𝛾− 1
+𝛾𝛾+ 1
+1
+𝛾𝛾−1
+ Total pressure ratio 𝑃𝑃02/𝑃𝑃0 →determines Mach number 
+ Freestream stagnation pressure 𝑃𝑃0 = 𝑃𝑃01
+8
+Static Pressure Estimate
+𝑃𝑃1
+𝑃𝑃0
+= 1 + 𝛾𝛾− 1
+2 𝑀𝑀2
+− 𝛾𝛾
+𝛾𝛾−1
+ Static pressure difficult to measure reliably in high-speed flow 
+ Estimate 𝑃𝑃1 using isentropic relation 𝑃𝑃1/𝑃𝑃0
+ Assume 𝑃𝑃1 constant across boundary layer
+9
+Rayleigh Pitot Method
+10
+ Rayleigh Pitot relation → Mach number
+ Uses 𝑃𝑃02(measured) and 𝑃𝑃1(estimated)
+𝑃𝑃02
+𝑃𝑃1
+= 𝛾𝛾1)2𝑀𝑀2
+4𝛾𝛾𝑀𝑀2 − 2 𝛾𝛾− 1
+1
+𝛾𝛾−1 1 − 𝛾𝛾+ 2𝛾𝛾𝑀𝑀2
+𝛾𝛾+ 1
+𝛾𝛾
+𝛾𝛾−1Static Pressure Uncertainty
+𝛿𝛿𝑃𝑃1 = 𝜕𝜕𝑃𝑃1
+𝜕𝜕𝑃𝑃02
+𝛿𝛿𝑃𝑃02
+2
++ 𝜕𝜕𝑃𝑃1
+𝜕𝜕𝑃𝑃0
+𝛿𝛿𝑃𝑃0
+2
+ Uncertainty in 𝑃𝑃1estimated using Kline–McClintock method
+ Uses uncertainties in 𝑃𝑃0and 𝑃𝑃02manufacturer data)
+11
+Mach Number Uncertainty
+𝛿𝛿𝑀𝑀= 𝜕𝜕𝑀𝑀
+𝜕𝜕𝑃𝑃02
+𝛿𝛿𝑃𝑃02
+2
++ 𝜕𝜕𝑀𝑀
+𝜕𝜕𝑃𝑃1
+𝛿𝛿𝑃𝑃1
+2
+ Mach depends on pressure ratio 𝑃𝑃02/𝑃𝑃1
+ Uncertainty comes from both 𝑃𝑃02and estimated 𝑃𝑃1
+ Kline–McClintock method used for Mach uncertainty
+
+--- CHUNK 4 ---
+𝛿𝛿𝑀𝑀= 𝜕𝜕𝑀𝑀
+𝜕𝜕𝑃𝑃02
+𝛿𝛿𝑃𝑃02
+2
++ 𝜕𝜕𝑀𝑀
+𝜕𝜕𝑃𝑃1
+𝛿𝛿𝑃𝑃1
+2
+ Mach depends on pressure ratio 𝑃𝑃02/𝑃𝑃1
+ Uncertainty comes from both 𝑃𝑃02and estimated 𝑃𝑃1
+ Kline–McClintock method used for Mach uncertainty
+ Mach is highly sensitive to changes in 𝑃𝑃1
+ Small changes in 𝑃𝑃1 cause large variations in Mach number
+12
+Probe System Overview
+ Pitot Probe mounted using a 
+Stepper motor Traversing 
+system
+ Laser used to align the Pitot 
+probe in the center of the flow
+ Strut implemented to prevent 
+oscillations
+13
+Experimental Setup
+ Probe was traversed in both 
+spanwise and wall-normal 
+directions
+ Motor mount configuration allows 
+positioning from side wall or top
+ Measurements were taken 
+pointwise from the wall toward 
+the freestream
+14
+PITOT PROBE TIP
+Test Section Measurement Locations
+ Total of fourteen runs: seven 
+wall-normal and seven  
+spanwise
+ Seven discrete points spaced 
+12.75 mm apart
+ Points extend from wall into 
+the flow for both directions
+15
+Wall-Normal Results
+
+--- CHUNK 5 ---
+ Total of fourteen runs: seven 
+wall-normal and seven  
+spanwise
+ Seven discrete points spaced 
+12.75 mm apart
+ Points extend from wall into 
+the flow for both directions
+15
+Wall-Normal Results
+ Profile shows agreement 
+with initial tunnel 
+characterization scans from 
+(Hoffman et al. 2023)
+ Freestream Mach ≈ 7.2 
+within uncertainty bounds
+ Boundary layer thickness ≈ 
+40 mm
+ Differences near floor due to 
+pointwise measurements 
+16
+Spanwise Results
+ Boundary layer thickness 
+estimated at ~40 mm
+ Freestream Mach number 
+agrees with wall-normal 
+profile
+17
+Mach Field Reconstruction
+ Spatial Mach number distribution of 
+both the wall-normal and spanwise
+ Uniform freestream region validated
+ One quadrant shown - upper right 
+of the test section center
+18
+Comparison of Mach Profiles
+ Combined wall-normal and 
+spanwise profiles with prior 
+data
+ Freestream Mach agrees with 
+characterization (≈ 7.2)
+ Overall profile shape shows 
+strong agreement
+19
+Conclusion
+
+--- CHUNK 6 ---
+ Combined wall-normal and 
+spanwise profiles with prior 
+data
+ Freestream Mach agrees with 
+characterization (≈ 7.2)
+ Overall profile shape shows 
+strong agreement
+19
+Conclusion 
+ Wall-normal measurements captured boundary layer 
+development
+ Spanwise measurements show reduced Mach near sidewall 
+boundary layer
+ Freestream Mach number consistent with prior facility 
+characterization
+ Results confirm stable Mach 7.2 operation of the UTSA 
+Ludwieg tube
+20
