@@ -8,7 +8,7 @@ from qdrant_client.models import PointStruct
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-pdf_path = BASE_DIR / "data" / "AIAA-presentation_Nandan_Last.pdf"
+pdf_path = BASE_DIR / "data" / "1 SITE PLAN.pdf"
 
 # Read PDF
 reader = PdfReader(pdf_path)

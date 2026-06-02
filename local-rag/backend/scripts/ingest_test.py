@@ -14,7 +14,8 @@ client = QdrantClient(
 query = "Which is the Lab?"
 
 query_vector = model.encode(query).tolist()
-
+# new method of querying points in Qdrant. The 'query_vector' parameter is now just 'query'.    
+# Vector created from the PDF chunks will be stored in the 'documents' collection in Qdrant, and we are querying against that collection.
 response = client.query_points(
     collection_name="documents",
     query=query_vector,          # Changed 'query_vector' parameter to 'query'
