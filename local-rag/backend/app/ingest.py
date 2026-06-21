@@ -4,7 +4,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance
-from qdrant_client.models import PointStruc
+from qdrant_client.models import PointStruct
 from qdrant_client.http import models
 
 
@@ -18,9 +18,6 @@ reader = PdfReader(pdf_path)
 # Extract text
 text = ""
 
-for page in reader.pages:
-    text += page.extract_text()
-
 # Create splitter
 # each chunk will have 500 characters and an overlap of 50 characters between chunks
 # meaning that the last 50 characters of one chunk will be the first 50 characters of the next chunk
@@ -29,24 +26,37 @@ splitter = RecursiveCharacterTextSplitter(
     chunk_overlap=100
 )
 
-# Split text into chunks
-chunks = splitter.split_text(text)
+#Create page-aware chunks
+documents = []
+
+for page_num, page in enumerate(reader.pages):
+
+    page_text = page.extract_text()
+    
+    if not page_text:
+        continue
+
+    page_chunks = splitter.split_text(page_text)
+
+    for chunk in page_chunks:
+
+        documents.append({
+            "text": chunk,
+            "page": page_num + 1
+        })
+
+
 
 # Print info
-print(f"Total chunks: {len(chunks)}")
-
-#** For debugging purposes, we can write the chunks to a file to see how they look. */
-#with open("chunks.txt", "w", encoding="utf-8") as f:
-#    for i, chunk in enumerate(chunks):
-#        f.write(f"\n--- CHUNK {i+1} ---\n")
-#        f.write(chunk)
-#        f.write("\n")
+print(f"Total chunks: {len(documents)}")
 
 # Load model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 # Generate embeddings
-embeddings = model.encode(chunks)
+texts = [doc["text"] for doc in documents]
+
+embeddings = model.encode(texts)
 
 # Connect Qdrant
 client = QdrantClient(
@@ -74,7 +84,10 @@ for i, vector in enumerate(embeddings):
         PointStruct(
             id=i,
             vector=vector.tolist(),
-            payload={"text": chunks[i]}
+            payload={
+                "text": documents[i]["text"],
+                "page": documents[i]["page"]
+            }
         )
     )
 

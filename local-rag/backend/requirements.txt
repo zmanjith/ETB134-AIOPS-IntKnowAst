@@ -1,7 +1,7 @@
-langchain
-langchain-community
-pypdf
-qdrant-client
-sentence-transformers
 fastapi
 uvicorn
+ollama
+qdrant-client
+sentence-transformers
+pypdf
+langchain-text-splitters

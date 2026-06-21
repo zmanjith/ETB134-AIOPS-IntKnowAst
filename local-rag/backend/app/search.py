@@ -12,7 +12,7 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 
 # Define a function for performing semantic search.
 def semantic_search(query, limit=5):
-    # Convert query to embedding
+    # Convert quer  y to embedding
     query_vector = model.encode(query).tolist()
 
     # UPDATED: Changed client.search -> client.query_points
@@ -22,8 +22,10 @@ def semantic_search(query, limit=5):
         query=query_vector,
         limit=limit
     )
-
-    return results
+    return [
+        hit.payload["text"]
+        for hit in results.points
+    ]
 
 # Define a function to display the search results in a readable format.
 def display_results(results):
