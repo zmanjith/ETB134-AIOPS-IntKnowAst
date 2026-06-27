@@ -20,6 +20,37 @@ services:
     volumes:
       - minio_storage:/data
     
+
+  rag-api:
+    build:
+      context: ./
+
+    container_name: rag-api
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      - QDRANT_HOST=qdrant
+
+    depends_on:
+      - qdrant
+    volumes:
+      - /home/manji/ETB134-AIOPS-IntKnowAst/local-rag/backend/data:/app/data
+
+  ollama:
+    image: ollama/ollama
+
+    container_name: ollama
+
+    ports:
+      - "11435:11434"
+
+    volumes:
+      - ollama_data:/root/.ollama
+
+
 volumes:
   qdrant_storage:
   minio_storage:
+  ollama_data:

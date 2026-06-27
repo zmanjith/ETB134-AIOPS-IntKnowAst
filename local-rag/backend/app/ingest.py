@@ -6,10 +6,11 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance
 from qdrant_client.models import PointStruct
 from qdrant_client.http import models
+import os
 
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 pdf_path = BASE_DIR / "data" / "DevOps1.pdf"
 
 # Read PDF
@@ -60,7 +61,7 @@ embeddings = model.encode(texts)
 
 # Connect Qdrant
 client = QdrantClient(
-    host="localhost",
+    host=os.getenv("QDRANT_HOST", "qdrant"),  # Use the environment variable or default to "qdrant"
     port=6333
 )
 

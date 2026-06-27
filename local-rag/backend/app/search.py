@@ -2,8 +2,15 @@ from qdrant_client import QdrantClient
 from sentence_transformers import SentenceTransformer
 
 # Connect to Qdrant
+import os
+
+QDRANT_HOST = os.getenv(
+    "QDRANT_HOST",
+    "localhost"
+)
+
 client = QdrantClient(
-    host="localhost",
+    host=QDRANT_HOST,
     port=6333
 )
 

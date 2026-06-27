@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: rag-api
+  namespace: local-rag
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: rag-api
+
+  template:
+    metadata:
+      labels:
+        app: rag-api
+
+    spec:
+      containers:
+        - name: rag-api
+          image: local-rag-api:v1
+          env:
+            - name: QDRANT_HOST
+              value: qdrant
+
+            - name: OLLAMA_HOST
+              value: http://ollama:11434
+
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000

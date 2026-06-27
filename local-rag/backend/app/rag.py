@@ -1,4 +1,5 @@
 import ollama
+import os
 
 from search import semantic_search
 from prompt_generator import build_prompt
@@ -16,7 +17,9 @@ def ask(question):
     )
 
     response = ollama.chat(
-        model="llama3.2",
+        model=os.getenv(   "OLLAMA_HOST",
+                    "http://ollama:11435"
+                    ),
         messages=[
             {
                 "role": "user",
