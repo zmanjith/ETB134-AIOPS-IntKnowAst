@@ -1,0 +1,13 @@
+2026-07-01 09:00:01 INFO Starting Payment Service
+
+2026-07-01 09:00:02 INFO Loading Configuration
+
+2026-07-01 09:00:03 INFO Connecting to PostgreSQL
+
+2026-07-01 09:00:05 ERROR Password authentication failed for user payment_app
+
+2026-07-01 09:00:07 WARNING Retrying database connection...
+
+2026-07-01 09:00:09 ERROR Database connection terminated
+
+2026-07-01 09:00:10 INFO Application shutting down
