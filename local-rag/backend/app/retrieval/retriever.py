@@ -1,5 +1,3 @@
-# retriever/retriever.py
-
 from embeddings.embedding_service import EmbeddingService
 from vectorstore.qdrant_service import QdrantService
 
