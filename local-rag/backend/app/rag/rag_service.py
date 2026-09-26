@@ -1,6 +1,6 @@
 from retrieval.retriever import Retriever
 from rag.prompt_builder import PromptBuilder
-from LLM.ollama_service import OllamaService
+from llm.ollama_service import OllamaService
 
 
 class RagService:

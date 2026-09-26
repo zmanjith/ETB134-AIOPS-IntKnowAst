@@ -5,3 +5,153 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# ============================================================
+# Python
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+
+# ============================================================
+# Environment / Secrets
+# ============================================================
+
+.env
+.env.*
+!.env.example
+
+# Certificates / private keys
+*.pem
+*.key
+*.crt
+
+
+# ============================================================
+# RAG / Application Data
+# ============================================================
+
+# Uploaded documents
+data/
+documents/
+uploads/
+
+# Generated / processed documents
+processed/
+output/
+
+# Vector database data
+qdrant_data/
+qdrant_storage/
+
+# MinIO local storage
+minio_data/
+
+
+# ============================================================
+# Logs
+# ============================================================
+
+*.log
+logs/
+
+# Application logs
+app.log
+error.log
+debug.log
+
+
+# ============================================================
+# Ollama
+# ============================================================
+
+# If Ollama is running locally, don't commit its model storage
+.ollama/
+ollama_data/
+
+
+# ============================================================
+# Jupyter
+# ============================================================
+
+.ipynb_checkpoints/
+
+
+# ============================================================
+# IDE
+# ============================================================
+
+.vscode/
+.idea/
+
+# VS Code local settings
+*.code-workspace
+
+
+# ============================================================
+# OS
+# ============================================================
+
+.DS_Store
+Thumbs.db
+
+
+# ============================================================
+# Docker
+# ============================================================
+
+# Docker volumes / local persistent data
+docker-data/
+docker-volumes/
+
+
+# ============================================================
+# Terraform (if infrastructure is in this repository)
+# ============================================================
+
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform lock file is normally committed
+# .terraform.lock.hcl
+
+
+# ============================================================
+# Temporary files
+# ============================================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

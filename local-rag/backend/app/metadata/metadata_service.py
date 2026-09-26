@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 class MetadataService:
-
+## this is called in Ingest.py now. Need to update it to respective Loader class.
     def enrich(self, document):
 
         source = Path(document["source"])

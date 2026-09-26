@@ -1,4 +1,4 @@
-from LLM.ollama_service import OllamaService
+from llm.ollama_service import OllamaService
 
 
 class LogSummarizer:

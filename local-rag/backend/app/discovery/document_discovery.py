@@ -10,7 +10,7 @@ class DocumentDiscovery:
         ".log"
     }
 
-    def discover(self, knowledge_path: Path):
+    def discover(self, knowledge_path: Path):   ## this method is called in KnwledgeLoader class to discover the files in the knowledge_path
 
         documents = []
 

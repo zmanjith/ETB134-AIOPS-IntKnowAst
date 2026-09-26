@@ -35,7 +35,7 @@ documents = metadata_service.enrich_documents(processed_documents)
 
 print("Metadata enrichment completed")
 
-# 4.Split into chunks
+# 4.Split into chunks- Chunking is done in the respective loader class. So, we can remove this step from here. We can call the chunking method in the respective loader class after loading the documents.
 splitter = DocumentSplitter()
 chunks = splitter.split_documents(documents)
 

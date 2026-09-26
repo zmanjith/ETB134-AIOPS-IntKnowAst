@@ -13,7 +13,7 @@ class KnowledgeLoader:
 
         all_documents = []
 
-        files = self.discovery.discover(knowledge_path)
+        files = self.discovery.discover(knowledge_path)   ## calling the Discovery class to discover the files in the knowledge_path
 
         for file in files:
 
@@ -21,7 +21,7 @@ class KnowledgeLoader:
 
             if loader:
 
-                documents = loader.load(file)
+                documents = loader.load(file) 
 
                 all_documents.extend(documents)
 
