@@ -5,3 +5,4 @@ qdrant-client
 sentence-transformers
 pypdf
 langchain-text-splitters
+kubernetes

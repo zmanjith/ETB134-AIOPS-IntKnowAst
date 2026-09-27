@@ -1,11 +1,11 @@
-from app.enums.category import Category
-from app.enums.document_type import DocumentType
-from app.enums.severity import Severity
-from app.enums.technology import Technology
+from enums.category import Category
+from enums.document_type import DocumentType
+from enums.severity import Severity
+from enums.technology import Technology
 from kubernetes import client
 from kubernetes import config
 from kubernetes import watch
-from app.models.operational_document import OperationalDocument
+from models.operational_document import OperationalDocument
 
 class KubernetesEventWatcher:
     

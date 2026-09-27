@@ -1,10 +1,10 @@
 from typing import Dict, Optional
 
 from pydantic import BaseModel, Field
-from app.enums.category import Category
-from app.enums.document_type import DocumentType
-from app.enums.severity import Severity
-from app.enums.technology import Technology
+from enums.category import Category
+from enums.document_type import DocumentType
+from enums.severity import Severity
+from enums.technology import Technology
 
 class OperationalDocument(BaseModel):
     """
@@ -32,13 +32,13 @@ class OperationalDocument(BaseModel):
     technology: Technology = Field(
         description="Associated technology."
     )
-
-    # ---------- Optional ----------
-    timestamp: Optional[str] = None
-
+    
     severity: Severity = Field(
         description="Severity level of the operational document."
     )
+    
+    # ---------- Optional ----------
+    timestamp: Optional[str] = None
 
     namespace: Optional[str] = None
 
