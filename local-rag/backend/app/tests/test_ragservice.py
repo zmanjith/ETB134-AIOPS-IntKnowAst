@@ -1,4 +1,4 @@
-from app.rag.rag_service import RagService
+from rag.rag_service import RagService
 
 service = RagService()
 result = service.ask("What is Kubernetes?")

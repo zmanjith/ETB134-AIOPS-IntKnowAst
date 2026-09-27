@@ -1,4 +1,6 @@
-from rag import ask
+from rag.rag_service import RagService
+
+rag_service = RagService()
 
 while True:
 
@@ -7,7 +9,9 @@ while True:
     if question.lower() == "exit":
         break
 
-    answer = ask(question)
+    result = rag_service.ask(question)
 
     print("\nAnswer:")
-    print(answer)
+    print(result["answer"])
+    print("\nSources:", result["sources"])
+    
