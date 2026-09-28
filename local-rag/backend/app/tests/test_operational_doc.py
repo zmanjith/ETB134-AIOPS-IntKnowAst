@@ -1,10 +1,11 @@
-from app.models.operational_document import OperationalDocument
+from app.models.knowledge_unit import KnowledgeUnit
 from app.enums.category import Category
 from app.enums.document_type import DocumentType
 from app.enums.severity import Severity
 from app.enums.technology import Technology
 
-doc = OperationalDocument(
+doc = KnowledgeUnit(
+    ingestion_channel=IngestionChannel.MANUAL,
   
     text="Database authentication failed.",
 

@@ -1,18 +1,23 @@
+from datetime import datetime
 from typing import Dict, Optional
-
 from pydantic import BaseModel, Field
 from enums.category import Category
 from enums.document_type import DocumentType
 from enums.severity import Severity
 from enums.technology import Technology
+from enums.ingestion_channel import IngestionChannel
 
-class OperationalDocument(BaseModel):
+
+class KnowledgeUnit(BaseModel):
     """
     Canonical representation of operational knowledge
     inside the AIOps platform.
     """
+    ingestion_channel: IngestionChannel
+    ingested_at: datetime = Field(default_factory=datetime.utcnow)
+    ttl_expires_at: Optional[datetime] = None
 
-    # ---------- Required ----------
+    # ---------- Required ----------#
     text: str = Field(
         description="Primary textual content to be embedded."
     )
@@ -45,3 +50,5 @@ class OperationalDocument(BaseModel):
     cluster: Optional[str] = None
 
     labels: Optional[Dict[str, str]] = None
+    
+  

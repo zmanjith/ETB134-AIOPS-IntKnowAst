@@ -5,7 +5,7 @@ from enums.technology import Technology
 from kubernetes import client
 from kubernetes import config
 from kubernetes import watch
-from models.operational_document import OperationalDocument
+from models.knowledge_unit import KnowledgeUnit
 
 class KubernetesEventWatcher:
     
@@ -31,7 +31,7 @@ class KubernetesEventWatcher:
         if event.type != "Warning":
             return None
 
-        return OperationalDocument(
+        return KnowledgeUnit(
 
             text=event.message,
 
