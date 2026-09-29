@@ -1,6 +1,9 @@
-from datetime import datetime
 from typing import Dict, Optional
-from pydantic import BaseModel, Field
+from uuid import UUID, uuid4
+from datetime import datetime, timezone
+
+from pydantic import BaseModel, Field, ConfigDict
+
 from enums.category import Category
 from enums.document_type import DocumentType
 from enums.severity import Severity
@@ -9,46 +12,23 @@ from enums.ingestion_channel import IngestionChannel
 
 
 class KnowledgeUnit(BaseModel):
-    """
-    Canonical representation of operational knowledge
-    inside the AIOps platform.
-    """
+    model_config = ConfigDict(extra="forbid")
+
+    id: UUID = Field(default_factory=uuid4)
+
+    text: str
+    source: str
+    category: Category
+    document_type: DocumentType
+    technology: Technology
+    severity: Severity
+
     ingestion_channel: IngestionChannel
-    ingested_at: datetime = Field(default_factory=datetime.utcnow)
+
+    timestamp: Optional[str] = None
+    ingested_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     ttl_expires_at: Optional[datetime] = None
 
-    # ---------- Required ----------#
-    text: str = Field(
-        description="Primary textual content to be embedded."
-    )
-
-    source: str = Field(
-        description="Original source file or system."
-    )
-
-    category: Category = Field(
-        description="High-level source category."
-    )
-
-    document_type: DocumentType = Field(
-        description="Type of operational document."
-    )
-
-    technology: Technology = Field(
-        description="Associated technology."
-    )
-    
-    severity: Severity = Field(
-        description="Severity level of the operational document."
-    )
-    
-    # ---------- Optional ----------
-    timestamp: Optional[str] = None
-
     namespace: Optional[str] = None
-
     cluster: Optional[str] = None
-
     labels: Optional[Dict[str, str]] = None
-    
-  

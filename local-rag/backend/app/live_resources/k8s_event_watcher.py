@@ -2,10 +2,13 @@ from enums.category import Category
 from enums.document_type import DocumentType
 from enums.severity import Severity
 from enums.technology import Technology
+from enums.ingestion_channel import IngestionChannel
 from kubernetes import client
 from kubernetes import config
 from kubernetes import watch
 from models.knowledge_unit import KnowledgeUnit
+from enums.ingestion_channel import IngestionChannel
+
 
 class KubernetesEventWatcher:
     
@@ -44,6 +47,8 @@ class KubernetesEventWatcher:
             technology=Technology.KUBERNETES,
 
             severity=Severity.WARNING,
+            
+            ingestion_channel=IngestionChannel.LIVE_SIGNAL,
 
             timestamp=str(event.last_timestamp),
 
